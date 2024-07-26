@@ -9,5 +9,5 @@ for file in os.listdir("./cogs"):
     if file.endswith(".py"):
         bot.load_extension(f"cogs.{file[:-3]}")
 
-keep_alive()
+keep_alive
 bot.run(token)
