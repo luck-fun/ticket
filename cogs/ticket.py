@@ -26,7 +26,7 @@ class ButtonView(disnake.ui.View):
         if not disnake.utils.get(interaction.guild.categories, name="Тикеты"):
             await interaction.guild.create_category("Тикеты")
 
-        support = interaction.guild.get_role(1175454210825916447)
+        support = interaction.guild.get_role("ROLE_ID")
         # Creates the ticket channel
         channel = await interaction.guild.create_text_channel(
             name=f"Обращение от {interaction.author.name}",
@@ -93,7 +93,7 @@ class ButtonsRole(commands.Cog):
         embed.set_author(name="Поддержка")
         embed.description = f"Появились вопросы/хотите заказать? Откройте тикет по кнопке ниже! "
 
-        embed.set_image(url="https://i.imgur.com/QzB7q9J.png")
+        embed.set_image(url="IMAGE_URL")
         await ctx.send(embed=embed, view=view)
 
     # Создаем слушателя события "on_ready", который добавляет персистентную кнопку.
@@ -103,7 +103,7 @@ class ButtonsRole(commands.Cog):
             return
 
 
-        self.bot.add_view(ButtonView(), message_id=1198631907886374913)
+        self.bot.add_view(ButtonView(), message_id="MESSAGE_ID")
 
 
 # Функция setup, которая добавляет класс ButtonsRole как Cog (команду-расширение) в бота.
